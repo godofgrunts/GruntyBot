@@ -8,6 +8,7 @@ list = []
 def remove(bot, trigger):
 	global list
 	list = json.loads(open(data_file).read())
+	check = not list
 	name = trigger.group(2)
 	if trigger.admin:
 		open(data_file).close()
@@ -17,7 +18,7 @@ def remove(bot, trigger):
 			outfile = open(data_file, 'w')
 			json.dump(list, outfile)
 			outfile.close()
-		elif (name == None) and (list):
+		elif (name == None) and (check == False):
 			first = list[0]
 			bot.say('%s is being removed from the list!' % (first))
 			list.remove(first)
@@ -25,7 +26,10 @@ def remove(bot, trigger):
 			json.dump(list, outfile)
 			outfile.close()
 		else:
-			bot.say('I did not find %s in the list.' % (name))
+			if check:
+				bot.say('No one to remove you dummy.')
+			else:
+				bot.say('I did not find %s in the list.' % (name))
 	else:
 		nickname = str(trigger.nick)
 		if nickname in list:
