@@ -3,6 +3,59 @@
 Actually addons for Willie (http://willie.dftba.net/)
 
 #Install Instructions
+
+Create a new account on Twitch.tv for your bot (example: GruntyBot)
+
+Go to http://www.twitchapps.com/tmi/ connect your new bot account to it, and copy the key you get INCLUDING THE "oauth:" part (you'll need to do this anytime your password is reset)
+
+##Linux (Tested on Ubuntu, adjust for you distro)
+
+sudo apt-get update
+
+sudo apt-get install python3 python3-dev python3-lxml
+
+sudo pip3 install willie
+
+willie
+
+Nickname for your bot: This needs to be the name of the Twitch Account. ALL LOWER CASE.
+
+Server to connect to: irc.twitch.tv
+
+Connect with SSL: n
+
+Port to connect: 6667
+
+Your own IRC name: YOUR TWITCH NAME (REMEMBER ALL LOWER CASE)
+
+Channel: HASTAG YOUR TWITCH NAME (REMEMBER ALL LOWER CASE) ex #god_of_grunts
+
+Modules that need configuring (y/n): Up to you, some of the modules won't work correctly if you don't, but those are not in the scope of this tutorial
+
+press ctrl+c to exit
+
+cd ~/.willie/
+
+wget https://github.com/godofgrunts/GruntyBot/archive/master.zip
+
+unzip master.zip
+
+cp ./GruntyBot-master/* ./modules/
+
+rm -R GruntyBot-master/ master.zip
+
+nano ./default.cfg
+
+Underneath nick = add:
+
+server_password = OAUTH:PASSWORD (you got this from the very first step)
+
+ctrl+o [enter] to save ctrl+x to exit
+
+Now run willie and it should connect.
+
+##Windows
+
 ## Prepare yourself
 
 GruntyBot
@@ -36,14 +89,6 @@ Unzip willie-master
 Download GruntyBot Files https://github.com/godofgrunts/GruntyBot/archive/master.zip
 
 Unzip the GruntyBot-Master
-
-
-Create a new account on Twitch.tv for your bot (example: GruntyBot)
-
-Go to http://www.twitchapps.com/tmi/ connect your new bot account to it, and copy the key you get INCLUDING THE "oauth:" part (you'll need to do this anytime your password is reset)
-
-
-
 
 Open Windows Powershell AS ADMIN
 
